@@ -7,7 +7,7 @@ from time import time
 from confluent_kafka import Producer
 
 #File Source Variables
-projectPath="/users/ian.salandy@ibm.com/documents/"
+projectPath="/Users/ian.salandy@ibm.com/PycharmProjects/kafkaProducer/"
 payLoadFile="payload.json"
 recipientsFile="recipAC_3985_1M.csv"
 payLoadListFile="payloadList.json"
@@ -66,7 +66,7 @@ with open(projectPath + recipientsFile) as csvfile:
             json.dump(readJSON, jsonAppendFile)
             jsonAppendFile.write("\n")
 
-            time.sleep(.25)
+            #time.sleep(.25)
             p.produce(topic, json.dumps(readJSON))
             p.flush()
 
